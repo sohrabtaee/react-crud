@@ -1,12 +1,12 @@
 import React from 'react'
 import { GlobalProvider } from '../context/GlobalState'
-import Nav from '../components/Nav'
+import Navigation from '../components/Navigation'
 import '../assets/styles.css'
 
 export default function NotesApp({ Component, pageProps }) {
   return (
     <GlobalProvider>
-      <Nav />
+      <Navigation />
       <Component {...pageProps} />
     </GlobalProvider>
   )

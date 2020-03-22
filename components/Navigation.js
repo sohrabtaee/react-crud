@@ -9,7 +9,7 @@ const links = [
   key: `nav-link-${link.href}-${link.label}`,
 }))
 
-const Nav = () => (
+const Navigation = () => (
   <nav>
     <ul className="flex bg-gray-200 p-4">
       {links.map(({ key, href, label }) => (
@@ -23,4 +23,4 @@ const Nav = () => (
   </nav>
 )
 
-export default Nav
+export default Navigation
