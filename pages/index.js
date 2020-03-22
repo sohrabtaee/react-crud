@@ -16,7 +16,6 @@ const Home = () => {
         <title>My Notes</title>
       </Head>
 
-      <h1>My Notes</h1>
       {notes.length ? (
         <NoteList notes={notes} onDelete={deleteNote} />
       ) : (
