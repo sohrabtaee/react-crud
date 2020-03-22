@@ -34,10 +34,14 @@ input, textarea {
   @apply border-solid border border-gray-400 p-2 rounded block w-full
 }
 
-button {
+button, .button {
   @apply border-solid border border-gray-400 inline-block py-2 px-6 rounded
 }
 
 @tailwind components;
+
+.action-button {
+  @apply text-white p-1 w-8 h-8 inline-flex justify-center items-center border-0
+}
 
 @tailwind utilities;
