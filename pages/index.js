@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import Head from 'next/head'
-import Link from 'next/link'
 import { GlobalContext } from '../context/GlobalState'
 import NoteList from '../components/NoteList'
+import AddNoteButton from '../components/AddNoteButton'
 
 const Home = () => {
   const { notes, removeNote } = useContext(GlobalContext)
@@ -19,11 +19,7 @@ const Home = () => {
       {notes.length ? (
         <NoteList notes={notes} onDelete={deleteNote} />
       ) : (
-        <Link href="/add">
-          <a className="button mt-4 border-0 bg-green-600 text-white text-xl">
-            Add a note
-          </a>
-        </Link>
+        <AddNoteButton />
       )}
     </div>
   )

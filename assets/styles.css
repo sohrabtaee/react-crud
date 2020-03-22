@@ -41,22 +41,31 @@ button, .button {
 @tailwind components;
 
 .note-card {
-  @apply mt-4 bg-gray-100 p-2 w-full shadow-md
+  @apply mb-4 bg-gray-100 p-2 w-full shadow-md
+}
+@screen sm {
+  .note-card {
+    width: 22rem;
+    @apply mr-4
+  }
 }
 .note-card-header {
   min-height: 2rem;
-  @apply relative
+  @apply relative flex items-center pr-20
 }
 .note-card-content {
   --lh: 1.6rem;
   line-height: var(--lh);
   --max-lines: 8;
   max-height: calc(var(--lh) * var(--max-lines));
-  @apply overflow-hidden mt-1
+  @apply overflow-hidden block h-full
+}
+.note-card-content:not(:empty) {
+  @apply mt-1
 }
 
 .action-button {
-  @apply p-0 w-8 h-8 inline-flex justify-center items-center border-0
+  @apply p-0 w-8 h-8 inline-flex justify-center items-center border-0 text-2xl
 }
 
 @tailwind utilities;
