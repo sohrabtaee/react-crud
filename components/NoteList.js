@@ -1,11 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import Link from 'next/link'
-import { GlobalContext } from '../context/GlobalState'
 import { MdClose, MdEdit } from 'react-icons/md'
 
-const NoteList = ({ onDelete }) => {
-  const { notes } = useContext(GlobalContext)
-
+const NoteList = ({ notes, onDelete }) => {
   return (
     <ul className="flex flex-wrap">
       {notes.map((note) => (
@@ -33,6 +31,11 @@ const NoteList = ({ onDelete }) => {
       ))}
     </ul>
   )
+}
+
+NoteList.propTypes = {
+  notes: PropTypes.array,
+  onDelete: PropTypes.func,
 }
 
 export default NoteList
