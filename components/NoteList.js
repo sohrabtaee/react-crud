@@ -7,11 +7,14 @@ const NoteList = () => {
   const { notes } = useContext(GlobalContext)
 
   return (
-    <ul>
+    <ul className="flex flex-wrap">
       {notes.map((note) => (
-        <li key={note.id} className="mt-4 bg-gray-100 p-2 relative">
+        <li
+          key={note.id}
+          className="mt-4 bg-gray-100 p-2 relative w-full sm:w-64 sm:mr-4"
+        >
           <h3 className="pr-16">{note.title}</h3>
-          <div className="mt-1">{note.content}</div>
+          <div className="mt-1 card-content">{note.content}</div>
           <div className="absolute top-0 right-0 text-xl">
             <Link href="/edit/[id]" as={`/edit/${note.id}`}>
               <a className="action-button text-blue-600">

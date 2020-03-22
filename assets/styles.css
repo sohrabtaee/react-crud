@@ -40,6 +40,14 @@ button, .button {
 
 @tailwind components;
 
+.card-content {
+  --lh: 1.6rem;
+  line-height: var(--lh);
+  --max-lines: 8;
+  max-height: calc(var(--lh) * var(--max-lines));
+  @apply overflow-hidden
+}
+
 .action-button {
   @apply text-white p-1 w-8 h-8 inline-flex justify-center items-center border-0
 }

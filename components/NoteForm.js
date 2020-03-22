@@ -7,7 +7,7 @@ const NoteForm = ({ id, title, content, onSubmit }) => {
   const submit = (note) => onSubmit(note, id)
 
   return (
-    <form onSubmit={handleSubmit(submit)}>
+    <form onSubmit={handleSubmit(submit)} className="max-w-lg">
       <label htmlFor="title">Title</label>
       <input
         defaultValue={title}

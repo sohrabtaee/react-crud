@@ -5,10 +5,10 @@ import NoteList from '../components/NoteList'
 const Home = () => (
   <div className="p-4">
     <Head>
-      <title>Home</title>
+      <title>My Notes</title>
     </Head>
 
-    <h1>Home Page</h1>
+    <h1>My Notes</h1>
     <NoteList />
   </div>
 )
