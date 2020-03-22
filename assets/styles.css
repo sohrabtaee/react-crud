@@ -30,6 +30,14 @@ h6 {
   @apply text-sm
 }
 
+input, textarea {
+  @apply border-solid border border-gray-400 p-2 rounded block w-full
+}
+
+button {
+  @apply border-solid border border-gray-400 inline-block py-2 px-6 rounded
+}
+
 @tailwind components;
 
 @tailwind utilities;

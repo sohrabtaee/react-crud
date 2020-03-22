@@ -5,10 +5,13 @@ export default (state, action) => {
         ...state,
         notes: state.notes.filter((note) => note.id !== action.payload),
       }
-    case 'ADD_NOTES':
+    case 'ADD_NOTE':
       return {
         ...state,
-        notes: [...state.notes, action.payload],
+        notes: [
+          ...state.notes,
+          { ...action.payload, id: state.notes[state.notes.length - 1].id + 1 },
+        ],
       }
     case 'EDIT_NOTE':
       return {
