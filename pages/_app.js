@@ -1,5 +1,13 @@
+import React from 'react'
+import { GlobalProvider } from '../context/GlobalState'
+import Nav from '../components/Nav'
 import '../assets/styles.css'
 
-export default function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+export default function NotesApp({ Component, pageProps }) {
+  return (
+    <GlobalProvider>
+      <Nav />
+      <Component {...pageProps} />
+    </GlobalProvider>
+  )
 }

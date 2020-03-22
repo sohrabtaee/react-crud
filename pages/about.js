@@ -1,16 +1,13 @@
 import React from 'react'
 import Head from 'next/head'
-import Nav from '../components/nav'
 
 const About = () => (
-  <div>
+  <div className="p-4">
     <Head>
       <title>About</title>
     </Head>
 
-    <Nav />
-
-    <h1>About Page</h1>
+    <h1 className="text-xl">About Page</h1>
   </div>
 )
 
