@@ -8,7 +8,7 @@ const Home = () => (
       <title>Home</title>
     </Head>
 
-    <h1 className="text-xl">Home Page</h1>
+    <h1>Home Page</h1>
     <NoteList />
   </div>
 )

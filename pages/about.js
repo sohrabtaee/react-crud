@@ -7,7 +7,7 @@ const About = () => (
       <title>About</title>
     </Head>
 
-    <h1 className="text-xl">About Page</h1>
+    <h1>About Page</h1>
   </div>
 )
 

@@ -1,3 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,500&display=swap');
+
 @tailwind base;
+
+html {
+  font-family: 'Quicksand', sans-serif;
+  @apply font-light
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-medium
+}
+
+h1 {
+  @apply text-3xl;
+}
+h2 {
+  @apply text-2xl;
+}
+h3 {
+  @apply text-xl;
+}
+h4 {
+  @apply text-lg
+}
+h5 {
+  @apply text-base
+}
+h6 {
+  @apply text-sm
+}
+
 @tailwind components;
+
 @tailwind utilities;
