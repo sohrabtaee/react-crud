@@ -5,12 +5,12 @@ import Nav from '../components/nav'
 const Home = () => (
   <div>
     <Head>
-      <title>Home</title>
+      <title>About</title>
     </Head>
 
     <Nav />
 
-    <h1 className="text-xl p-4">Home Page</h1>
+    <h1>About Page</h1>
   </div>
 )
 
