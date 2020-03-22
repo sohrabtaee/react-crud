@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 
 const links = [
-  { href: '/', label: 'Home' },
+  { href: '/', label: 'My Notes' },
   { href: '/add', label: 'Add Note' },
 ].map((link) => ({
   ...link,
