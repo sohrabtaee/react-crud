@@ -7,7 +7,7 @@ import NoteForm from '../components/NoteForm'
 const AddNote = () => {
   const router = useRouter()
   const { addNote } = useContext(GlobalContext)
-  const onSubmit = (note) => {
+  const submitNote = (note) => {
     addNote(note)
     router.push('/')
   }
@@ -18,7 +18,7 @@ const AddNote = () => {
         <title>Add Note</title>
       </Head>
 
-      <NoteForm onSubmit={onSubmit} />
+      <NoteForm onSubmit={submitNote} />
     </div>
   )
 }

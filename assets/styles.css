@@ -40,16 +40,23 @@ button, .button {
 
 @tailwind components;
 
-.card-content {
+.note-card {
+  @apply mt-4 bg-gray-100 p-2 w-full shadow-md
+}
+.note-card-header {
+  min-height: 2rem;
+  @apply relative
+}
+.note-card-content {
   --lh: 1.6rem;
   line-height: var(--lh);
   --max-lines: 8;
   max-height: calc(var(--lh) * var(--max-lines));
-  @apply overflow-hidden
+  @apply overflow-hidden mt-1
 }
 
 .action-button {
-  @apply text-white p-1 w-8 h-8 inline-flex justify-center items-center border-0
+  @apply p-0 w-8 h-8 inline-flex justify-center items-center border-0
 }
 
 @tailwind utilities;

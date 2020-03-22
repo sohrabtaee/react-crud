@@ -11,7 +11,7 @@ const EditNote = () => {
   const note = notes.find((note) => note.id === Number(id))
 
   const { editNote } = useContext(GlobalContext)
-  const onSubmit = (note, id) => {
+  const submitNote = (note, id) => {
     editNote({ ...note, id })
     router.push('/')
   }
@@ -22,7 +22,7 @@ const EditNote = () => {
         <title>Edit Note</title>
       </Head>
 
-      <NoteForm {...note} onSubmit={onSubmit} />
+      <NoteForm {...note} onSubmit={submitNote} />
     </div>
   )
 }

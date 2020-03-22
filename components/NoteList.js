@@ -3,28 +3,32 @@ import Link from 'next/link'
 import { GlobalContext } from '../context/GlobalState'
 import { MdClose, MdEdit } from 'react-icons/md'
 
-const NoteList = () => {
+const NoteList = ({ onDelete }) => {
   const { notes } = useContext(GlobalContext)
 
   return (
     <ul className="flex flex-wrap">
       {notes.map((note) => (
-        <li
-          key={note.id}
-          className="mt-4 bg-gray-100 p-2 relative w-full sm:w-64 sm:mr-4"
-        >
-          <h3 className="pr-16">{note.title}</h3>
-          <div className="mt-1 card-content">{note.content}</div>
-          <div className="absolute top-0 right-0 text-xl">
-            <Link href="/edit/[id]" as={`/edit/${note.id}`}>
-              <a className="action-button text-blue-600">
-                <MdEdit />
-              </a>
-            </Link>
-            <button className="action-button text-red-600">
-              <MdClose />
-            </button>
-          </div>
+        <li key={note.id} className="note-card sm:w-64 sm:mr-4">
+          <header className="note-card-header">
+            <h2 className="pr-16 text-lg">{note.title}</h2>
+            <div className="absolute top-0 right-0 text-xl">
+              <Link href="/edit/[id]" as={`/edit/${note.id}`}>
+                <a className="action-button text-blue-600">
+                  <MdEdit />
+                </a>
+              </Link>
+              <button
+                className="action-button text-red-600"
+                onClick={() => onDelete(note.id)}
+              >
+                <MdClose />
+              </button>
+            </div>
+          </header>
+          {note.content && (
+            <div className="note-card-content">{note.content}</div>
+          )}
         </li>
       ))}
     </ul>
