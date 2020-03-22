@@ -1,19 +1,25 @@
+import { REMOVE_NOTE, ADD_NOTE, EDIT_NOTE } from './Constants'
+import { generateId } from './Helpers'
+
 export default (state, action) => {
   switch (action.type) {
-    case 'REMOVE_NOTE':
+    case REMOVE_NOTE:
       return {
         ...state,
         notes: state.notes.filter((note) => note.id !== action.payload),
       }
-    case 'ADD_NOTE':
+    case ADD_NOTE:
       return {
         ...state,
         notes: [
           ...state.notes,
-          { ...action.payload, id: state.notes[state.notes.length - 1].id + 1 },
+          {
+            ...action.payload,
+            id: generateId(state.notes),
+          },
         ],
       }
-    case 'EDIT_NOTE':
+    case EDIT_NOTE:
       return {
         ...state,
         notes: state.notes.map((note) => {

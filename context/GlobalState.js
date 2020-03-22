@@ -1,14 +1,9 @@
 import React, { createContext, useReducer } from 'react'
 import NotesReducer from './NotesReducer'
+import { REMOVE_NOTE, ADD_NOTE, EDIT_NOTE } from './Constants'
 
 const initialState = {
-  notes: [
-    {
-      id: 1,
-      title: 'Sample note',
-      content: 'Sample note content',
-    },
-  ],
+  notes: [],
 }
 
 export const GlobalContext = createContext(initialState)
@@ -18,21 +13,21 @@ export const GlobalProvider = ({ children }) => {
 
   function removeNote(id) {
     dispatch({
-      type: 'REMOVE_NOTE',
+      type: REMOVE_NOTE,
       payload: id,
     })
   }
 
   function addNote(note) {
     dispatch({
-      type: 'ADD_NOTE',
+      type: ADD_NOTE,
       payload: note,
     })
   }
 
   function editNote(note) {
     dispatch({
-      type: 'EDIT_NOTE',
+      type: EDIT_NOTE,
       payload: note,
     })
   }
