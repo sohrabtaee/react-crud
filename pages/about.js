@@ -2,7 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import Nav from '../components/nav'
 
-const Home = () => (
+const About = () => (
   <div>
     <Head>
       <title>About</title>
@@ -14,4 +14,4 @@ const Home = () => (
   </div>
 )
 
-export default Home
+export default About

@@ -3,8 +3,8 @@ import Link from 'next/link'
 
 const links = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' }
-].map(link => ({
+  { href: '/about', label: 'About' },
+].map((link) => ({
   ...link,
   key: `nav-link-${link.href}-${link.label}`,
 }))
@@ -14,7 +14,9 @@ const Nav = () => (
     <ul className="flex bg-gray-200 p-4">
       {links.map(({ key, href, label }) => (
         <li key={key} className="mr-4">
-          <Link href={href}><a>{label}</a></Link>
+          <Link href={href}>
+            <a>{label}</a>
+          </Link>
         </li>
       ))}
     </ul>
