@@ -1,8 +1,8 @@
 import React, { useContext, Fragment } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { GlobalContext } from '../../context/GlobalState'
-import AddNoteButton from '../../components/AddNoteButton'
+import { GlobalContext } from '~/context/GlobalState'
+import AddNoteButton from '~/components/AddNoteButton'
 
 const ViewNote = () => {
   const router = useRouter()

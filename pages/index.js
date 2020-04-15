@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import Head from 'next/head'
-import { GlobalContext } from '../context/GlobalState'
-import NoteList from '../components/NoteList'
-import AddNoteButton from '../components/AddNoteButton'
+import { GlobalContext } from '~/context/GlobalState'
+import NoteList from '~/components/NoteList'
+import AddNoteButton from '~/components/AddNoteButton'
 
 const Home = () => {
   const { notes, removeNote } = useContext(GlobalContext)

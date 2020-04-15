@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { GlobalContext } from '../../context/GlobalState'
-import NoteForm from '../../components/NoteForm'
+import { GlobalContext } from '~/context/GlobalState'
+import NoteForm from '~/components/NoteForm'
 
 const EditNote = () => {
   const router = useRouter()
