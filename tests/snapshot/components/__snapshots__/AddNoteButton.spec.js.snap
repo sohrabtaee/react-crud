@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Add Note Button should render the button 1`] = `
+<a
+  class="button border-0 bg-green-600 text-white text-xl"
+  data-testid="button"
+  href="/add"
+>
+  Add a note
+</a>
+`;

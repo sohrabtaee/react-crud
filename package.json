@@ -8,7 +8,8 @@
     "start": "next start",
     "export": "next export",
     "deploy": "npm run build && npm run export",
-    "unit-tests": "jest tests/unit"
+    "unit-tests": "jest tests/unit",
+    "snapshot-tests": "jest tests/snapshot"
   },
   "dependencies": {
     "autoprefixer": "^9.7.4",
