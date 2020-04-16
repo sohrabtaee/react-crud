@@ -1,4 +1,4 @@
-import { REMOVE_NOTE, ADD_NOTE, EDIT_NOTE } from './Constants'
+import { REMOVE_NOTE, ADD_NOTE, EDIT_NOTE, UPDATE_NOTES } from './Constants'
 import { generateId } from './Helpers'
 
 export default (state, action) => {
@@ -28,6 +28,11 @@ export default (state, action) => {
           }
           return note
         }),
+      }
+    case UPDATE_NOTES:
+      return {
+        ...state,
+        notes: action.payload,
       }
     default:
       return state

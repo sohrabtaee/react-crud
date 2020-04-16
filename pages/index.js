@@ -1,14 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Head from 'next/head'
 import { GlobalContext } from '~/context/GlobalState'
 import NoteList from '~/components/NoteList'
 import AddNoteButton from '~/components/AddNoteButton'
+import { LOCAL_STORAGE_KEY } from '~/context/Constants'
 
 const Home = () => {
   const { notes, removeNote } = useContext(GlobalContext)
   const deleteNote = (id) => {
     removeNote(id)
   }
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(notes))
+  }, [notes])
 
   return (
     <div className="p-4">
