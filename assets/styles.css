@@ -4,7 +4,18 @@
 
 html {
   font-family: 'Quicksand', sans-serif;
+  height: 100%;
   @apply font-light;
+}
+
+body {
+  padding-bottom: 80px;
+  min-height: 100%;
+}
+@screen sm {
+  body {
+    padding-bottom: 0;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {

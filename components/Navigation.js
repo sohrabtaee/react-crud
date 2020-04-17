@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { IoIosAdd } from 'react-icons/io'
 
 const Navigation = () => (
-  <nav>
+  <nav className="fixed w-full bottom-0 z-10 sm:relative">
     <ul className="flex justify-between items-center bg-gray-200 px-4 py-2 text-lg uppercase">
       <li>
         <Link href="/">
