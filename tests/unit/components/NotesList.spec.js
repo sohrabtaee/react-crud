@@ -2,6 +2,7 @@ import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import NoteList from '~/components/NoteList'
+import { sampleNotes } from '~/tests/helpers'
 
 describe('Notes List', () => {
   describe('No notes', () => {
@@ -15,18 +16,7 @@ describe('Notes List', () => {
 
   describe('With notes', () => {
     const onDelete = jest.fn()
-    const notes = [
-      {
-        id: 1,
-        title: 'title',
-        content: 'content',
-      },
-      {
-        id: 2,
-        title: 'title2',
-        content: 'content2',
-      },
-    ]
+    const notes = sampleNotes
     beforeEach(() => {
       render(<NoteList notes={notes} onDelete={onDelete} />)
     })
