@@ -9,7 +9,8 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:prettier/recommended",
-    "plugin:react-hooks/recommended"
+    "plugin:react-hooks/recommended",
+    "plugin:cypress/recommended"
   ],
   "globals": {
     "Atomics": "readonly",
