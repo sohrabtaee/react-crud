@@ -26,6 +26,7 @@ const NoteList = ({ notes, onDelete }) => {
                 <a
                   className="action-button text-blue-600"
                   data-testid="edit-link"
+                  data-cy="edit-note"
                 >
                   <MdEdit />
                 </a>

@@ -12,7 +12,11 @@ const Navigation = () => (
       </li>
       <li>
         <Link href="/add">
-          <a className="block text-5xl text-green-600" title="Add Note">
+          <a
+            className="block text-5xl text-green-600"
+            title="Add Note"
+            data-cy="nav-add-note"
+          >
             <IoIosAdd />
           </a>
         </Link>
