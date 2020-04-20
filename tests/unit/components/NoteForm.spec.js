@@ -3,20 +3,35 @@ import { render, screen, fireEvent, act } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import NoteForm from '~/components/NoteForm'
 
+const onSubmit = jest.fn()
+let noteTitle, noteContent, noteSubmit
+const setup = (note) => {
+  note
+    ? render(<NoteForm {...note} onSubmit={onSubmit} />)
+    : render(<NoteForm onSubmit={onSubmit} />)
+
+  noteTitle = screen.getByTestId('note-title')
+  noteContent = screen.getByTestId('note-content')
+  noteSubmit = screen.getByTestId('note-submit')
+}
+
+const fillAndSubmitTheForm = async (title, content) => {
+  await act(async () => {
+    title && fireEvent.input(noteTitle, { target: { value: title } })
+    content && fireEvent.input(noteContent, { target: { value: content } })
+    fireEvent.click(noteSubmit)
+  })
+}
+
 describe('Note Form', () => {
+  afterEach(() => jest.clearAllMocks())
+
   describe('Add Note', () => {
     const note = {
       title: 'Note Title',
       content: 'Note Content',
     }
-    const onSubmit = jest.fn()
-    let noteTitle, noteContent, noteSubmit
-    beforeEach(() => {
-      render(<NoteForm onSubmit={onSubmit} />)
-      noteTitle = screen.getByTestId('note-title')
-      noteContent = screen.getByTestId('note-content')
-      noteSubmit = screen.getByTestId('note-submit')
-    })
+    beforeEach(() => setup())
 
     it('should show an empty form', () => {
       expect(noteTitle).toBeTruthy()
@@ -25,19 +40,14 @@ describe('Note Form', () => {
     })
 
     it('should not submit a form without a title', async () => {
-      await act(async () => {
-        fireEvent.input(noteContent, { target: { value: note.content } })
-        fireEvent.click(noteSubmit)
-      })
+      await fillAndSubmitTheForm(null, note.content)
+
       expect(onSubmit).toHaveBeenCalledTimes(0)
     })
 
     it('should add a note', async () => {
-      await act(async () => {
-        fireEvent.input(noteTitle, { target: { value: note.title } })
-        fireEvent.input(noteContent, { target: { value: note.content } })
-        fireEvent.click(noteSubmit)
-      })
+      await fillAndSubmitTheForm(note.title, note.content)
+
       expect(noteTitle).toHaveValue('Note Title')
       expect(noteContent).toHaveValue('Note Content')
       expect(onSubmit).toHaveBeenCalledTimes(1)
@@ -56,14 +66,7 @@ describe('Note Form', () => {
       title: 'Edited Title',
       content: 'Edited Content',
     }
-    const onSubmit = jest.fn()
-    let noteTitle, noteContent, noteSubmit
-    beforeEach(() => {
-      render(<NoteForm {...note} onSubmit={onSubmit} />)
-      noteTitle = screen.getByTestId('note-title')
-      noteContent = screen.getByTestId('note-content')
-      noteSubmit = screen.getByTestId('note-submit')
-    })
+    beforeEach(() => setup(note))
 
     it('should show the form populated with given values', () => {
       expect(noteTitle).toHaveValue(note.title)
@@ -71,11 +74,8 @@ describe('Note Form', () => {
     })
 
     it('should edit a note', async () => {
-      await act(async () => {
-        fireEvent.input(noteTitle, { target: { value: editedNote.title } })
-        fireEvent.input(noteContent, { target: { value: editedNote.content } })
-        fireEvent.click(noteSubmit)
-      })
+      await fillAndSubmitTheForm(editedNote.title, editedNote.content)
+
       expect(noteTitle).toHaveValue(editedNote.title)
       expect(noteContent).toHaveValue(editedNote.content)
       expect(onSubmit).toHaveBeenCalledTimes(1)
