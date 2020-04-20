@@ -16,7 +16,11 @@ const NoteList = ({ notes, onDelete }) => {
           <header className="note-card-header">
             <h2 className="text-lg w-full">
               <Link href="/view/[id]" as={`/view/${note.id}`}>
-                <a className="block truncate" data-testid="view-link">
+                <a
+                  className="block truncate"
+                  data-testid="view-link"
+                  data-cy="view-note"
+                >
                   {note.title}
                 </a>
               </Link>

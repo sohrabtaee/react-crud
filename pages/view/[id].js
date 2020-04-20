@@ -18,8 +18,12 @@ const ViewNote = () => {
 
       {note ? (
         <Fragment>
-          <h1 className="mb-2">{note.title}</h1>
-          <article className="whitespace-pre-wrap">{note.content}</article>
+          <h1 className="mb-2" data-cy="view-note-title">
+            {note.title}
+          </h1>
+          <article className="whitespace-pre-wrap" data-cy="view-note-content">
+            {note.content}
+          </article>
         </Fragment>
       ) : (
         <Fragment>
