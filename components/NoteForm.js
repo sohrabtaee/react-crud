@@ -17,6 +17,7 @@ const NoteForm = ({ id, title, content, onSubmit }) => {
         ref={register({ required: true })}
         className="mb-4"
         autoFocus
+        data-cy="note-title"
       />
       <label htmlFor="content">Content</label>
       <textarea
@@ -26,8 +27,13 @@ const NoteForm = ({ id, title, content, onSubmit }) => {
         rows="8"
         ref={register}
         className="mb-4"
+        data-cy="note-content"
       ></textarea>
-      <button type="submit" className="bg-green-600 text-white">
+      <button
+        type="submit"
+        className="bg-green-600 text-white"
+        data-cy="note-submit"
+      >
         Save
       </button>
     </form>

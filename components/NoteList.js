@@ -5,9 +5,14 @@ import { MdClose, MdEdit } from 'react-icons/md'
 
 const NoteList = ({ notes, onDelete }) => {
   return (
-    <ul className="flex flex-wrap" data-testid="notes">
+    <ul className="flex flex-wrap" data-testid="notes" data-cy="notes">
       {notes.map((note) => (
-        <li key={note.id} className="note-card" data-testid="note">
+        <li
+          key={note.id}
+          className="note-card"
+          data-testid="note"
+          data-cy="note"
+        >
           <header className="note-card-header">
             <h2 className="text-lg w-full">
               <Link href="/view/[id]" as={`/view/${note.id}`}>
