@@ -35,6 +35,7 @@ const NoteList = ({ notes, onDelete }) => {
                 className="action-button text-red-600 ml-1"
                 onClick={() => onDelete(note.id)}
                 data-testid="delete-button"
+                data-cy="delete-note"
               >
                 <MdClose />
               </button>
