@@ -5,7 +5,7 @@ const AddNoteButton = () => (
   <Link href="/add">
     <a
       className="button border-0 bg-green-600 text-white text-xl"
-      data-testid="button"
+      data-testid="add-note"
       data-cy="add-note"
     >
       Add a note

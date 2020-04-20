@@ -34,6 +34,13 @@ describe('Notes List', () => {
       expect(noteList[1]).toHaveTextContent('title2')
     })
 
+    it('should show a proper content for each note', () => {
+      const noteList = screen.getAllByTestId('note')
+
+      expect(noteList[0]).toHaveTextContent('content')
+      expect(noteList[1]).toHaveTextContent('content2')
+    })
+
     it('should show a delete button for each note', () => {
       const deleteButtonList = screen.getAllByTestId('delete-button')
 
