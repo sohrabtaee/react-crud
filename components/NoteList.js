@@ -13,41 +13,39 @@ const NoteList = ({ notes, onDelete }) => {
           data-testid="note"
           data-cy="note"
         >
-          <header className="note-card-header">
-            <h2 className="text-lg w-full">
-              <Link href="/view/[id]" as={`/view/${note.id}`}>
-                <a
-                  className="block truncate"
-                  data-testid="view-link"
-                  data-cy="view-note"
-                >
-                  {note.title}
-                </a>
-              </Link>
-            </h2>
-            <div className="absolute top-0 right-0 z-10">
-              <Link href="/edit/[id]" as={`/edit/${note.id}`}>
-                <a
-                  className="action-button text-blue-600"
-                  data-testid="edit-link"
-                  data-cy="edit-note"
-                >
-                  <MdEdit />
-                </a>
-              </Link>
-              <button
-                className="action-button text-red-600 ml-1"
-                onClick={() => onDelete(note.id)}
-                data-testid="delete-button"
-                data-cy="delete-note"
+          <aside className="float-right pl-2">
+            <Link href="/edit/[id]" as={`/edit/${note.id}`}>
+              <a
+                className="action-button text-blue-600"
+                data-testid="edit-link"
+                data-cy="edit-note"
               >
-                <MdClose />
-              </button>
-            </div>
-          </header>
-          <Link href="/view/[id]" as={`/view/${note.id}`}>
-            <a className="note-card-content">{note.content}</a>
-          </Link>
+                <MdEdit />
+              </a>
+            </Link>
+            <button
+              className="action-button text-red-600"
+              onClick={() => onDelete(note.id)}
+              data-testid="delete-button"
+              data-cy="delete-note"
+            >
+              <MdClose />
+            </button>
+          </aside>
+          <article className="h-full">
+            <Link href="/view/[id]" as={`/view/${note.id}`}>
+              <a
+                className="block h-full"
+                data-testid="view-link"
+                data-cy="view-note"
+              >
+                {note.title && (
+                  <h2 className="text-lg mb-1 truncate">{note.title}</h2>
+                )}
+                <p className="note-card-content">{note.content}</p>
+              </a>
+            </Link>
+          </article>
         </li>
       ))}
     </ul>

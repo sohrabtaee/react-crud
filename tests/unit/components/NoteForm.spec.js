@@ -40,7 +40,7 @@ describe('Note Form', () => {
     })
 
     it('should not submit a form without a title', async () => {
-      await fillAndSubmitTheForm(null, note.content)
+      await fillAndSubmitTheForm(note.title)
 
       expect(onSubmit).toHaveBeenCalledTimes(0)
     })

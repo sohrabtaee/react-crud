@@ -52,7 +52,9 @@ button, .button {
 @tailwind components;
 
 .note-card {
-  @apply mb-4 bg-gray-100 p-2 w-full shadow-md overflow-hidden;
+  border-bottom: 0.5rem solid transparent;
+  padding: 0.5rem 0.5rem 0;
+  @apply mb-4 bg-gray-100 w-full shadow-md overflow-hidden;
 }
 @screen sm {
   .note-card {
@@ -60,19 +62,12 @@ button, .button {
     @apply mr-4;
   }
 }
-.note-card-header {
-  min-height: 2rem;
-  @apply relative flex items-center pr-20;
-}
+
 .note-card-content {
   --lh: 1.6rem;
   line-height: var(--lh);
-  --max-lines: 8;
+  --max-lines: 6;
   max-height: calc(var(--lh) * var(--max-lines));
-  @apply overflow-hidden block h-full;
-}
-.note-card-content:not(:empty) {
-  @apply mt-1;
 }
 
 .action-button {

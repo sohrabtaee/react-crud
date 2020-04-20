@@ -14,9 +14,8 @@ const NoteForm = ({ id, title, content, onSubmit }) => {
         type="text"
         name="title"
         id="title"
-        ref={register({ required: true })}
+        ref={register}
         className="mb-4"
-        autoFocus
         data-testid="note-title"
         data-cy="note-title"
       />
@@ -26,8 +25,9 @@ const NoteForm = ({ id, title, content, onSubmit }) => {
         id="content"
         name="content"
         rows="8"
-        ref={register}
+        ref={register({ required: true })}
         className="mb-4"
+        autoFocus
         data-testid="note-content"
         data-cy="note-content"
       ></textarea>
