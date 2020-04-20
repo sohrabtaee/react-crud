@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect'
 import NoteList from '~/components/NoteList'
 import { sampleNotes } from '~/tests/helpers'
 
-describe('Notes List', () => {
+describe('Note List', () => {
   describe('No notes', () => {
     it('should show nothing', () => {
       render(<NoteList notes={[]} />)
