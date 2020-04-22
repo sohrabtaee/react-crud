@@ -15,17 +15,13 @@ const PWAInstallButton = () => {
   const installPWA = () => {
     if (!deferredPrompt.current) return
     deferredPrompt.current.prompt()
-    // Wait for the user to respond to the prompt
-    deferredPrompt.current.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === 'accepted') {
-        console.log('User accepted the install prompt')
-      } else {
-        console.log('User dismissed the install prompt')
-      }
-    })
   }
   return (
-    <button type="button" onClick={installPWA}>
+    <button
+      type="button"
+      className="text-blue-600 border border-blue-500 py-1 px-4 ml-4 hover:bg-blue-500 hover:text-white"
+      onClick={installPWA}
+    >
       Install
     </button>
   )
