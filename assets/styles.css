@@ -64,6 +64,7 @@ button, .button {
 }
 
 .note-card-content {
+  white-space: pre-wrap;
   --lh: 1.6rem;
   line-height: var(--lh);
   --max-lines: 6;
