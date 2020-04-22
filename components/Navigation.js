@@ -1,45 +1,59 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { IoIosAdd } from 'react-icons/io'
-import { openPwaInstallPrompt } from '~/helpers/pwa'
 
 const Navigation = () => {
+  const deferredPrompt = useRef(null)
+
+  useEffect(() => {
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Prevent the mini-infobar from appearing on mobile
+      e.preventDefault()
+      // Stash the event so it can be triggered later.
+      deferredPrompt.current = e
+    })
+  })
+
   const installPWA = () => {
-    openPwaInstallPrompt().then((choiceResult) => {
+    if (!deferredPrompt.current) return
+    deferredPrompt.prompt()
+    // Wait for the user to respond to the prompt
+    deferredPrompt.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === 'accepted') {
-        console.log('shod')
+        console.log('User accepted the install prompt')
       } else {
-        console.log('ridi')
+        console.log('User dismissed the install prompt')
       }
     })
   }
   return (
     <nav className="fixed w-full bottom-0 z-50 sm:relative">
       <Head>
-        <meta charset="utf-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="manifest" href="manifest.json" />
+
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="application-name" content="Notes" />
+        <meta name="apple-mobile-web-app-title" content="Notes" />
+        <meta name="msapplication-starturl" content="/" />
         <meta
           name="viewport"
-          content="width=device-width,initial-scale=1,minimum-scale=1"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <title>My Notes</title>
 
-        <link rel="manifest" href="/manifest.json" />
         <link
-          href="/favicon-16x16.png"
           rel="icon"
           type="image/png"
-          sizes="16x16"
+          sizes="512x512"
+          href="images/icons/icon-512x512.png"
         />
         <link
-          href="/favicon-32x32.png"
-          rel="icon"
+          rel="apple-touch-icon"
           type="image/png"
-          sizes="32x32"
+          sizes="512x512"
+          href="images/icons/icon-512x512.png"
         />
-        <link rel="apple-touch-icon" href="/apple-icon.png"></link>
-        <meta name="theme-color" content="#000000" />
       </Head>
       <ul className="flex justify-between items-center bg-gray-200 px-4 py-2 text-lg uppercase">
         <li>
