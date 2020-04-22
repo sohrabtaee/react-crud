@@ -5,7 +5,7 @@ exports[`Navigation should render the navigation 1`] = `
   class="fixed w-full bottom-0 z-50 sm:relative"
 >
   <ul
-    class="flex justify-between items-center bg-gray-200 px-4 py-2 text-lg uppercase"
+    class="flex justify-start items-center bg-gray-200 px-4 py-2 text-lg uppercase"
   >
     <li>
       <a
@@ -16,6 +16,16 @@ exports[`Navigation should render the navigation 1`] = `
       </a>
     </li>
     <li>
+      <button
+        class="text-blue-600 border border-blue-500 py-1 px-4 ml-4 hover:bg-blue-500 hover:text-white"
+        type="button"
+      >
+        Install
+      </button>
+    </li>
+    <li
+      class="ml-auto"
+    >
       <a
         class="block text-5xl text-green-600"
         data-cy="nav-add-note"
