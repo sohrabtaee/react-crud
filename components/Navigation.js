@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { IoIosAdd } from 'react-icons/io'
+import { LOCAL_STORAGE_KEYS } from '~/context/Constants'
 import PWAInstallButton from './PWAInstallButton'
 
 const Navigation = () => {
   const [isInstalled, setIsInstalled] = useState(false)
   useEffect(() => {
-    setIsInstalled(window.matchMedia('(display-mode: standalone)').matches)
+    if (
+      process.browser &&
+      localStorage.getItem(LOCAL_STORAGE_KEYS.PWA_INSTALLED)
+    ) {
+      setIsInstalled(true)
+    }
   }, [isInstalled])
 
   return (

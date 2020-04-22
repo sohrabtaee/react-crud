@@ -5,12 +5,12 @@ import {
   ADD_NOTE,
   EDIT_NOTE,
   UPDATE_NOTES,
-  LOCAL_STORAGE_KEY,
+  LOCAL_STORAGE_KEYS,
 } from './Constants'
 
 let notes = []
-if (process.browser && localStorage.getItem(LOCAL_STORAGE_KEY)) {
-  notes = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+if (process.browser && localStorage.getItem(LOCAL_STORAGE_KEYS.NOTES)) {
+  notes = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEYS.NOTES))
 }
 
 const initialState = {

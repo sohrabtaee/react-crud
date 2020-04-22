@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { GlobalContext } from '~/context/GlobalState'
 import NoteList from '~/components/NoteList'
 import AddNoteButton from '~/components/AddNoteButton'
-import { LOCAL_STORAGE_KEY } from '~/context/Constants'
+import { LOCAL_STORAGE_KEYS } from '~/context/Constants'
 
 const Home = () => {
   const { notes, removeNote } = useContext(GlobalContext)
@@ -12,7 +12,7 @@ const Home = () => {
   }
 
   useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(notes))
+    localStorage.setItem(LOCAL_STORAGE_KEYS.NOTES, JSON.stringify(notes))
   }, [notes])
 
   return (

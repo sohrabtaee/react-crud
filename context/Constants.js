@@ -2,4 +2,7 @@ export const REMOVE_NOTE = 'REMOVE_NOTE'
 export const ADD_NOTE = 'ADD_NOTE'
 export const EDIT_NOTE = 'EDIT_NOTE'
 export const UPDATE_NOTES = 'UPDATE_NOTES'
-export const LOCAL_STORAGE_KEY = 'RHC_MY_NOTES'
+export const LOCAL_STORAGE_KEYS = {
+  NOTES: 'RHC_MY_NOTES_NOTES',
+  PWA_INSTALLED: 'RHC_MY_NOTES_PWA_INSTALLED',
+}
