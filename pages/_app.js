@@ -19,13 +19,13 @@ export default function NotesApp({ Component, pageProps }) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         <link
-          href="/images/icons/favicon-16.png"
+          href="/images/icons/favicon-16x16.png"
           rel="icon"
           type="image/png"
           sizes="16x16"
         />
         <link
-          href="/images/icons/favicon-32.png"
+          href="/images/icons/favicon-32x32.png"
           rel="icon"
           type="image/png"
           sizes="32x32"
