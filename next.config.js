@@ -1,13 +1,10 @@
 const path = require('path')
 const webpack = require('webpack')
-const withPWA = require('next-pwa')
+const withOffline = require('next-offline')
 
-module.exports = withPWA({
+module.exports = withOffline({
   webpack: (config) => {
     config.resolve.alias['~'] = path.resolve(__dirname)
     return config
-  },
-  pwa: {
-    dest: 'public',
   },
 })
