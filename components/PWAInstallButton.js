@@ -14,9 +14,9 @@ const PWAInstallButton = () => {
 
   const installPWA = () => {
     if (!deferredPrompt.current) return
-    deferredPrompt.prompt()
+    deferredPrompt.current.prompt()
     // Wait for the user to respond to the prompt
-    deferredPrompt.userChoice.then((choiceResult) => {
+    deferredPrompt.current.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === 'accepted') {
         console.log('User accepted the install prompt')
       } else {
