@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-import Home from '~/pages/index'
+import HomePage from '~/pages/index'
 import { sampleNotes } from '~/tests/helpers'
 import { GlobalContext } from '~/context/GlobalState'
 
@@ -21,7 +21,7 @@ describe('Home page', () => {
             notes: [],
           }}
         >
-          <Home />
+          <HomePage />
         </GlobalContext.Provider>
       )
       const addNote = screen.getByTestId('add-note')
@@ -43,7 +43,7 @@ describe('Home page', () => {
             removeNote,
           }}
         >
-          <Home />
+          <HomePage />
         </GlobalContext.Provider>
       )
 
