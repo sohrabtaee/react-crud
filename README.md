@@ -1,6 +1,6 @@
 # My Notes
 
-This is a simple note taking app implemented using React Hooks and Context API. The app is hosted on Netlify https://react-hooks-crud.netlify.app
+This is a simple note-taking app implemented using React Hooks and Context API. The app is hosted on Netlify https://react-hooks-crud.netlify.app
 
 ## Features
 
@@ -9,7 +9,7 @@ This is a simple note taking app implemented using React Hooks and Context API. 
 - Responsive Design
 - CRUD (Create, Read, Update, and Delete)
 - Uses only functional components and React Hooks
-- State management is done using Context API
+- Context API for state management
 - Snapshot tests
 - Unit tests
 - e2e tests
