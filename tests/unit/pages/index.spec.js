@@ -5,6 +5,13 @@ import Home from '~/pages/index'
 import { sampleNotes } from '~/tests/helpers'
 import { GlobalContext } from '~/context/GlobalState'
 
+jest.mock('~/components/NoteList', () => {
+  const NoteList = ({ onDelete }) => (
+    <button data-testid="notes-button" onClick={() => onDelete('id')}></button>
+  )
+  return NoteList
+})
+
 describe('Home page', () => {
   describe('No notes', () => {
     it('should show the Add button when there are no notes', () => {
@@ -18,16 +25,16 @@ describe('Home page', () => {
         </GlobalContext.Provider>
       )
       const addNote = screen.getByTestId('add-note')
-      const noteList = screen.queryByTestId('notes')
+      const notesButton = screen.queryByTestId('notes-button')
 
       expect(addNote).toBeTruthy()
-      expect(noteList).toBeFalsy()
+      expect(notesButton).toBeFalsy()
     })
   })
 
   describe('With notes', () => {
     it('should show a list of of notes when there are notes', async () => {
-      const localStorageSpy = jest.spyOn(Storage.prototype, 'setItem')
+      const setItemSpy = jest.spyOn(Storage.prototype, 'setItem')
       const removeNote = jest.fn()
       render(
         <GlobalContext.Provider
@@ -41,15 +48,13 @@ describe('Home page', () => {
       )
 
       const addNote = screen.queryByTestId('add-note')
-      const noteList = screen.queryByTestId('notes')
-      const deleteButton = screen.getAllByTestId('delete-button')[0]
-      fireEvent.click(deleteButton)
+      const notesButton = screen.getByTestId('notes-button')
+      fireEvent.click(notesButton)
 
       expect(addNote).toBeFalsy()
-      expect(noteList).toBeTruthy()
-      expect(localStorageSpy).toHaveBeenCalledTimes(1)
+      expect(setItemSpy).toHaveBeenCalledTimes(1)
       expect(removeNote).toHaveBeenCalledTimes(1)
-      expect(removeNote).toHaveBeenCalledWith(sampleNotes[0].id)
+      expect(removeNote).toHaveBeenCalledWith('id')
     })
   })
 })
