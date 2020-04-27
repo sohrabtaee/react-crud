@@ -27,7 +27,11 @@ const ViewNote = () => {
           >
             {note.title}
           </h1>
-          <span className="text-sm text-gray-500" data-testid="note-date">
+          <span
+            className="text-sm text-gray-500"
+            data-cy="view-note-date"
+            data-testid="note-date"
+          >
             {noteDate}
           </span>
           <article
