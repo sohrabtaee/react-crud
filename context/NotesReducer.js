@@ -16,6 +16,7 @@ export default (state, action) => {
           {
             ...action.payload,
             id: generateId(state.notes),
+            date: Date.now(),
           },
         ],
       }
