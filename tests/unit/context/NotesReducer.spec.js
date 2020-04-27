@@ -56,6 +56,7 @@ describe('Notes Reducer', () => {
           title: 'new title',
           content: 'new content',
           id: 3,
+          date: new Date(),
         },
       ],
     })
@@ -68,9 +69,9 @@ describe('Notes Reducer', () => {
     const action = {
       type: EDIT_NOTE,
       payload: {
+        ...sampleNotes[1],
         title: 'new title',
         content: 'new content',
-        id: 2,
       },
     }
     const result = NotesReducer(state, action)
@@ -79,9 +80,9 @@ describe('Notes Reducer', () => {
       notes: [
         sampleNotes[0],
         {
+          ...sampleNotes[1],
           title: 'new title',
           content: 'new content',
-          id: 2,
         },
       ],
     })
