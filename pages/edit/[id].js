@@ -11,8 +11,13 @@ const EditNote = () => {
   const note = notes.find((note) => note.id === Number(id))
 
   const { editNote } = useContext(GlobalContext)
-  const submitNote = (note) => {
-    editNote(note)
+  const submitNote = (formData) => {
+    const { id, date } = note
+    editNote({
+      ...formData,
+      id,
+      date,
+    })
     router.push('/')
   }
 

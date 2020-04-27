@@ -2,16 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
 
-const NoteForm = ({ id, title, content, date, onSubmit }) => {
+const NoteForm = ({ title, content, onSubmit }) => {
   const { register, handleSubmit } = useForm()
-  const submit = (editedNote) => {
-    const note = {
-      ...editedNote,
-      date,
-      id,
-    }
-    onSubmit(note)
-  }
+  const submit = (note) => onSubmit(note)
 
   return (
     <form onSubmit={handleSubmit(submit)} className="max-w-lg">
@@ -51,10 +44,8 @@ const NoteForm = ({ id, title, content, date, onSubmit }) => {
 }
 
 NoteForm.propTypes = {
-  id: PropTypes.number,
   title: PropTypes.string,
   content: PropTypes.string,
-  date: PropTypes.instanceOf(Date),
   onSubmit: PropTypes.func,
 }
 
