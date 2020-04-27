@@ -51,18 +51,16 @@ describe('Note Form', () => {
       expect(noteTitle).toHaveValue('Note Title')
       expect(noteContent).toHaveValue('Note Content')
       expect(onSubmit).toHaveBeenCalledTimes(1)
-      expect(onSubmit).toHaveBeenCalledWith(note, undefined)
+      expect(onSubmit).toHaveBeenCalledWith(note)
     })
   })
 
   describe('Edit Note', () => {
     const note = {
-      id: 1,
       title: 'Note Title',
       content: 'Note Content',
     }
     const editedNote = {
-      id: 1,
       title: 'Edited Title',
       content: 'Edited Content',
     }
@@ -79,13 +77,7 @@ describe('Note Form', () => {
       expect(noteTitle).toHaveValue(editedNote.title)
       expect(noteContent).toHaveValue(editedNote.content)
       expect(onSubmit).toHaveBeenCalledTimes(1)
-      expect(onSubmit).toHaveBeenCalledWith(
-        {
-          title: editedNote.title,
-          content: editedNote.content,
-        },
-        editedNote.id
-      )
+      expect(onSubmit).toHaveBeenCalledWith(editedNote)
     })
   })
 })

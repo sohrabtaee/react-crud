@@ -50,10 +50,12 @@ describe('View page', () => {
       const notFound = screen.queryByTestId('not-found')
       const noteTitle = screen.getByTestId('note-title')
       const noteContent = screen.getByTestId('note-content')
+      const noteDate = screen.getByTestId('note-date')
 
       expect(notFound).toBeFalsy()
       expect(noteTitle).toHaveTextContent('title2')
       expect(noteContent).toHaveTextContent('content2')
+      expect(noteDate).toHaveTextContent('21/02/2020')
     })
   })
 })

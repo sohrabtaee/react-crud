@@ -17,17 +17,14 @@ jest.mock('next/router', () => {
   }
 })
 jest.mock('~/components/NoteForm', () => {
-  const NoteForm = ({ id, title, content, onSubmit }) => (
+  const NoteForm = ({ title, content, onSubmit }) => (
     <button
       data-testid="submit-button"
       onClick={() =>
-        onSubmit(
-          {
-            title,
-            content,
-          },
-          id
-        )
+        onSubmit({
+          title,
+          content,
+        })
       }
     ></button>
   )
