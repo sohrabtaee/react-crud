@@ -4,7 +4,7 @@ import { IoIosAdd } from 'react-icons/io'
 import { LOCAL_STORAGE_KEYS } from '~/context/Constants'
 import PWAInstallButton from './PWAInstallButton'
 
-const Navigation = () => {
+const Navigation = React.memo(function Navigation() {
   const [isInstalled, setIsInstalled] = useState(false)
   useEffect(() => {
     if (
@@ -43,6 +43,6 @@ const Navigation = () => {
       </ul>
     </nav>
   )
-}
+})
 
 export default Navigation
